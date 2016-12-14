@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "emitEntryPoint": true
+  },
+
+  "dependencies": {
+    "Newtonsoft.Json": "8.0.3",
+    "System.ServiceProcess.ServiceController": "4.1.0-rc2-24027",
+    "System.Net.Http": "4.1.0"
+  },
+
+  "frameworks": {
+    "net461": { }
+  },
+
+  "tooling": {
+    "defaultNamespace": "LoyaltyProgramEventConsumer"
+  }
+}

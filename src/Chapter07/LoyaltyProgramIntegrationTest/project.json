@@ -1,0 +1,34 @@
+{
+  "version": "1.0.0-*",
+
+  "buildOptions": {
+    "preserveCompilationContext": true
+  },
+
+  "dependencies": {
+    "dotnet-test-xunit": "2.2.0-preview2-build1029",
+    "Microsoft.NETCore.App": {
+      "version": "1.0.0",
+      "type": "platform"
+    },
+    "xunit": "2.1.0",
+    "Microsoft.AspNetCore.Owin": "1.0.0",
+    "Nancy": "2.0.0-barneyrubble",
+    "LoyaltyProgram": { "target": "project" }
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": [
+        "dotnet5.6",
+        "portable-net45+win8"
+      ]
+    }
+  },
+
+  "testRunner": "xunit",
+
+  "tooling": {
+    "defaultNamespace": "LoyaltyProgramIntegrationTest"
+  }
+}

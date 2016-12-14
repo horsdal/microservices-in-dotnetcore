@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "emitEntryPoint": true
+  },
+
+  "dependencies": {
+    "Microsoft.NETCore.App": {
+      "type": "platform",
+      "version": "1.0.0"
+    },
+    "Newtonsoft.Json": "8.0.4-beta1",
+    "Polly": "4.2.1",
+    "IdentityModel": "2.0.0-beta3",
+    "System.Net.Http": "4.1.0"
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": "dnxcore50"
+    }
+  },
+
+  "tooling": {
+    "defaultNamespace": "ApiGatewayMock"
+  }
+}

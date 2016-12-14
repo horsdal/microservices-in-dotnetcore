@@ -1,0 +1,35 @@
+{
+  "version": "1.0.0-*",
+
+  "buildOptions": {
+    "preserveCompilationContext": true
+  },
+
+  "dependencies": {
+    "dotnet-test-xunit": "2.2.0-preview2-build1029",
+    "Microsoft.NETCore.App": {                      
+      "version": "1.0.0",                           
+      "type": "platform"                            
+    },                                              
+    "xunit": "2.1.0",
+    "System.Security.Claims": "4.0.1",
+    "System.Globalization": "4.0.11"  
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": [
+        "dotnet5.6",
+        "portable-net45+win8"
+      ],
+      "dependencies": {
+      }
+    }
+  },
+
+  "testRunner": "xunit",
+
+  "tooling": {
+    "defaultNamespace": "OwinMiddlewareTests"
+  }
+}
