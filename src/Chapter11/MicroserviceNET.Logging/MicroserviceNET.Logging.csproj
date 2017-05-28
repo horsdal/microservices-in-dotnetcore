@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.5</TargetFramework>
+    <AssemblyName>MicroserviceNET.Logging</AssemblyName>
+    <PackageId>MicroserviceNET.Logging</PackageId>
+    <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Serilog" Version="2.4.0" />
+    <PackageReference Include="System.Security.Principal" Version="4.3.0" />
+    <PackageReference Include="System.Security.Claims" Version="4.3.0" />
+    <PackageReference Include="System.Globalization.Extensions" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>
