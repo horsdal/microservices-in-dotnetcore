@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Code samples from Microservices in .NET Core
 The code samples from my microservices book - https://manning.com/books/microservices-in-net-core
 
