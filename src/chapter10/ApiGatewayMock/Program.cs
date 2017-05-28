@@ -33,6 +33,7 @@ namespace ApiGatewayMock
       var response = await this.tokenClient.RequestClientCredentialsAsync(scope).ConfigureAwait(false);
       var client = new HttpClient() {BaseAddress = uri};
       client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", response.AccessToken);
+      client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
       return client;
     }
   }

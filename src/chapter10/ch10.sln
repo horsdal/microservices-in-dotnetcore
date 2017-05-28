@@ -1,13 +1,13 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26114.2
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LoyaltyProgram", "LoyaltyProgram\LoyaltyProgram.xproj", "{4BED3C45-E8C3-4345-A08F-249A39A256EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoyaltyProgram", "LoyaltyProgram\LoyaltyProgram.csproj", "{4BED3C45-E8C3-4345-A08F-249A39A256EB}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ApiGatewayMock", "ApiGatewayMock\ApiGatewayMock.xproj", "{FE109A02-BF1B-46FC-87C8-2A68781CE8A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGatewayMock", "ApiGatewayMock\ApiGatewayMock.csproj", "{FE109A02-BF1B-46FC-87C8-2A68781CE8A4}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Login", "Login\Login.xproj", "{F416D0B1-71EE-400E-91E2-FC2B047DA208}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login", "Login\Login.csproj", "{F416D0B1-71EE-400E-91E2-FC2B047DA208}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
