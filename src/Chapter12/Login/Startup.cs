@@ -1,4 +1,6 @@
-﻿namespace Login
+﻿using IdentityServer4.Models;
+
+namespace Login
 {
   using System.IO;
   using Microsoft.AspNetCore.Builder;
@@ -24,12 +26,21 @@
       var cert = new X509Certificate2(Path.Combine(this.environment.ContentRootPath, "idsrv3test.pfx"), "idsrv3test");
 
       services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-      var builder = services
-        .AddIdentityServer()
-        .SetSigningCredential(cert)
-        .AddInMemoryClients(Clients.Get())
-        .AddInMemoryScopes(Scopes.Get())
-        .AddInMemoryUsers(Users.Get());
+      services.AddIdentityServer()
+              .AddSigningCredential(cert)
+              .AddInMemoryIdentityResources(new IdentityResource[]
+              {
+                new IdentityResources.OpenId(),
+                new IdentityResources.Profile(),
+                new IdentityResources.Email(),
+                new IdentityResource
+                {
+                  Name = "loyalty_program_write",
+                  DisplayName = "Loyalty Program write access"
+                },
+              })
+              .AddInMemoryApiResources(new[] {new ApiResource("loyalty_program_write", "Loyalty Program"),})
+              .AddInMemoryClients(Clients.Get());
 
       services.AddMvc();
     }

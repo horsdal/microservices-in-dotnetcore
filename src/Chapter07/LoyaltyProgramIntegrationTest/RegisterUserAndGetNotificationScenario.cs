@@ -1,3 +1,5 @@
+using System.Net.Http.Headers;
+
 namespace LoyaltyProgramIntegrationTests
 {
     using System;
@@ -49,7 +51,7 @@ namespace LoyaltyProgramIntegrationTests
       var apiInfo = new ProcessStartInfo("dotnet.exe")
       {
         Arguments = "run",
-        WorkingDirectory = "../LoyaltyProgram"
+        WorkingDirectory = $"../../../../LoyaltyProgram"
       };
       this.api = Process.Start(apiInfo);
     }
@@ -59,15 +61,15 @@ namespace LoyaltyProgramIntegrationTests
       var eventConsumerInfo = new ProcessStartInfo("dotnet.exe")
       {
         Arguments = "run localhost:5001",
-        WorkingDirectory = "../LoyaltyProgramEventConsumer"   
+        WorkingDirectory = $"../../../../LoyaltyProgramEventConsumer"   
       };
       this.eventConsumer = Process.Start(eventConsumerInfo);
     }
 
     [Fact]
-    public void Scenario()
+    public async Task Scenario()
     {
-      RegisterNewUser();
+      await RegisterNewUser();
       WaitForConsumerToReadSpeciallOffersEvents();
       AssertNotificationWassent();
     }
@@ -76,7 +78,8 @@ namespace LoyaltyProgramIntegrationTests
     {
       using (var httpClient = new HttpClient())
       {
-        httpClient.BaseAddress = new Uri("http://localhost:5000");
+        httpClient.BaseAddress = new Uri("http://localhost:5001");
+        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         var response = await
           httpClient.PostAsync(
             "/users/",
@@ -108,7 +111,7 @@ namespace LoyaltyProgramIntegrationTests
       Console.WriteLine("disposing...");
       this.eventConsumer.Dispose();
       this.api.Dispose();
-      //this.hostForFakeEndpoints.Dispose();
+      this.hostForFakeEndpoints.Dispose();
       Console.WriteLine("disposed...");
     }
   }

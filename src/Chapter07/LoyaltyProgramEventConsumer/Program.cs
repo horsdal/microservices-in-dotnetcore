@@ -1,4 +1,4 @@
-using static System.Console;
+using System.ServiceProcess;
 
 namespace LoyaltyProgramEventConsumer
 {
@@ -7,10 +7,11 @@ namespace LoyaltyProgramEventConsumer
   using System.Linq;
   using System.Net;
   using System.Net.Http;
-  using System.ServiceProcess;
   using System.Threading.Tasks;
   using System.Timers;
   using Newtonsoft.Json;
+  using static System.Console;
+
 
   public class EventSubscriber
   {

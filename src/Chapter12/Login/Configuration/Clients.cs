@@ -39,9 +39,9 @@
 
           AllowedScopes = new List<string>
           {
-                        "openid",
-                        "email",
-                        "profile",
+            "openid",
+            "email",
+            "profile",
           }
         }
       };

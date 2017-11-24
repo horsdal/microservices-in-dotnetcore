@@ -1,5 +1,6 @@
 using System;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -9,7 +10,7 @@ namespace ApiGatewayMock
 {
   public class LoyaltyProgramClient
   {
-    private static Policy exponentialRetryPolicy =
+    private static readonly Policy exponentialRetryPolicy =
       Policy
         .Handle<Exception>()
         .WaitAndRetryAsync(
@@ -18,12 +19,12 @@ namespace ApiGatewayMock
                            (_, __) => Console.WriteLine("retrying..." + _)
         );
 
-    private static Policy circuitBreaker =
+    private static readonly Policy circuitBreaker =
       Policy
         .Handle<Exception>()
-        .CircuitBreaker(5, TimeSpan.FromMinutes(5));
+        .CircuitBreakerAsync(5, TimeSpan.FromMinutes(5));
 
-    private string hostName;
+    private readonly string hostName;
 
     public LoyaltyProgramClient(string loyalProgramMicroserviceHostName)
     {
@@ -40,6 +41,7 @@ namespace ApiGatewayMock
       var userResource = $"/users/{userId}";
       using (var httpClient = new HttpClient())
       {
+        httpClient.DefaultRequestHeaders.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
         httpClient.BaseAddress = new Uri($"http://{this.hostName}");
         var response = await httpClient.GetAsync(userResource);
         ThrowOnTransientFailure(response);
@@ -62,6 +64,7 @@ namespace ApiGatewayMock
     {
       using (var httpClient = new HttpClient())
       {
+        httpClient.DefaultRequestHeaders.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
         httpClient.BaseAddress = new Uri($"http://{this.hostName}");
         var response =
           await
@@ -81,6 +84,7 @@ namespace ApiGatewayMock
     {
       using (var httpClient = new HttpClient())
       {
+        httpClient.DefaultRequestHeaders.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
         httpClient.BaseAddress = new Uri($"http://{this.hostName}");
         var response =
           await

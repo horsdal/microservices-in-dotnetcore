@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+    <AssemblyName>MicroserviceNET.Platform</AssemblyName>
+    <PackageId>MicroserviceNET.Platform</PackageId>
+    <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MicroserivceNET.Auth\MicroserivceNET.Auth.csproj" />
+    <ProjectReference Include="..\MicroserviceNET.Logging\MicroserviceNET.Logging.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Nancy" Version="2.0.0-clinteastwood" />
+    <PackageReference Include="IdentityModel" Version="2.8.1" />
+    <PackageReference Include="System.Globalization.Extensions" Version="4.3.0" />  
+  </ItemGroup>
+
+</Project>

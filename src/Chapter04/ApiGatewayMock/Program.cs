@@ -27,8 +27,8 @@ namespace ApiGatewayMock
                 WriteLine("********************");
                 WriteLine("Choose one of:");
                 WriteLine("q <userid> - to query the Loyalty Program Microservice for a user with id <userid>.");
-                WriteLine("r <userid> - to register a user with id <userid> with the Loyalty Program Microservice.");
-                WriteLine("u <userid> <interests> - to update a user with new comman separated interests");
+                WriteLine("r <name> - to register a user with id <userid> with the Loyalty Program Microservice.");
+                WriteLine("u <userid> <interests> - to update a user with new interests");
                 WriteLine("exit - to exit");
                 WriteLine("********************");
                 var cmd = ReadLine();

@@ -7,6 +7,8 @@ using Polly;
 
 namespace ApiGatewayMock
 {
+    using System.Net.Http.Headers;
+
     public class LoyaltyProgramClient
     {
         private static Policy exponentialRetryPolicy =
@@ -35,6 +37,7 @@ namespace ApiGatewayMock
             var userResource = $"/users/{userId}";
             using(var httpClient = new HttpClient())
             { 
+              httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
               httpClient.BaseAddress = new Uri($"http://{this.hostName}");
               var response = await httpClient.GetAsync(userResource);
               ThrowOnTransientFailure(response);
@@ -55,7 +58,8 @@ namespace ApiGatewayMock
         private async Task<HttpResponseMessage> DoRegisterUser(LoyaltyProgramUser newUser)
         {
             using(var httpClient = new HttpClient())
-            { 
+            {
+              httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
               httpClient.BaseAddress = new Uri($"http://{this.hostName}");
               var response = await httpClient.PostAsync("/users/", new  StringContent(JsonConvert.SerializeObject(newUser), Encoding.UTF8, "application/json"));
               ThrowOnTransientFailure(response);
@@ -72,6 +76,7 @@ namespace ApiGatewayMock
         {
             using(var httpClient = new HttpClient())
             { 
+              httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
               httpClient.BaseAddress = new Uri($"http://{this.hostName}");
               var response = await httpClient.PutAsync($"/users/{user.Id}", new  StringContent(JsonConvert.SerializeObject(user), Encoding.UTF8, "application/json"));
               ThrowOnTransientFailure(response);
