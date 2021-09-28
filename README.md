@@ -1,4 +1,6 @@
-# Code samples from Microservices in .NET Core
+# Code samples from Microservices in .NET Core 1st edition
+This repository contains the code from the **first** edition of the book. If you are looking for the code for the **second** edition go to https://github.com/horsdal/microservices-in-dotnet-book-second-edition
+
 The code samples from my microservices book - https://manning.com/books/microservices-in-net-core
 
 [![](https://images.manning.com/255/340/resize/book/f/562623d-102a-47c4-b12f-4c09af31441e/Horsdal-Microservices-HI.png)](https://www.manning.com/books/microservices-in-net-core)
